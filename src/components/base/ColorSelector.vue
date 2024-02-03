@@ -45,9 +45,9 @@ function select(color: string) {
           :style="{ 'background-color': ('rgb(var(--color-' + modelValue + '))') }"
           @click="toggle"
         ></div>
-        
+
         <div
-          v-if="activated" 
+          v-if="activated"
           class="w-fit float-left border-2 border-gray-dark shadow-lg rounded"
         >
           <div

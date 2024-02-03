@@ -1,3 +1,4 @@
+<!--Создание карточки задачи-->
 <script setup lang='ts'>
 import { onBeforeMount, onMounted } from 'vue'
 import { computed } from '@vue/reactivity'
@@ -61,9 +62,9 @@ function setItemSelection(stageIndex: number, itemIndex: number) {
       boardStore.$patch(state => {
         const newItem = {
           id: Date.now().toString(36),
-          name: 'NAME',
-          desc: 'DESCRIPTION',
-          color: 'blue',
+          name: 'Название задачи',
+          desc: 'Описание',
+          // color: 'blue',
           updated: new Date().getTime(),
           created: new Date().getTime()
         }
@@ -80,7 +81,7 @@ function setItemSelection(stageIndex: number, itemIndex: number) {
 function moveItem(toStageIndex: number, itemId?: string) {
   if (itemId) boardStore.selectItemById(itemId)
   boardStore.$patch(state => {
-    
+
     if (state.selectedItem) {
       const newItemIndex = state.board
         .stages[toStageIndex]
@@ -112,7 +113,7 @@ function deleteItem() {
 
 <template>
   <h1 class="absolute text-xl text-green brightness-125 pl-7 mt-5 antialiased">
-    <strong>Tavle:</strong> A Simple Local Kanban Board
+    <strong>Kanban Board</strong>
   </h1>
   <div v-if="ready" class="flex h-screen flex-row gap-6 p-6 pt-12 -mt-5 antialiased">
     <stage-container

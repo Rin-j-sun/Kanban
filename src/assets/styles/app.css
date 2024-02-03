@@ -15,13 +15,13 @@
   }
 }
 
-html {
-    color-scheme: dark;
-}
+/*html {*/
+/*    color-scheme: dark;*/
+/*}*/
 
-body {
-    background-color: rgb(var(--color-gray-dark));
-}
+/*body {*/
+/*    background-color: rgb(var(--color-gray-dark));*/
+/*}*/
 
 .no-scrollbar::-webkit-scrollbar {
     display: none;

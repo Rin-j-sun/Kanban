@@ -52,7 +52,7 @@ function setDescHeight() {
     </div>
 
     <div class="flex flex-col gap-4 min-w-full h-full bottom-0 left-0 right-0 px-6 pb-12 overflow-y-auto">
-      
+
       <div
         v-if="item.updated != item.created"
         class="-mx-6 p-2 text-orange font-bold backdrop-brightness-90 text-center"
@@ -61,42 +61,43 @@ function setDescHeight() {
       </div>
 
       <div class="columns-2">
-        <div class="h-20">
-          <label class="font-bold">Color</label>
-          <color-selector v-model="item.color" />
-        </div>
+<!--        Выбор цвета задачи-->
+<!--        <div class="h-20">-->
+<!--          <label class="font-bold">Color</label>-->
+<!--          <color-selector v-model="item.color" />-->
+<!--        </div>-->
         <div class="float-right">
-            <default-button 
-              text="Delete" 
-              theme="evil" 
+            <default-button
+              text="Удалить"
+              theme="evil"
               class="w-16 bg-opacity-60"
-              :class="{ 'hidden': deleteActivated}" 
-              :active="true" 
+              :class="{ 'hidden': deleteActivated}"
+              :active="true"
               @click="startDelete"
             />
-            <default-button 
-              text="Delete?" 
-              theme="mean" 
-              class="w-16 animate-pulse" 
-              :class="{ 'hidden': !deleteActivated}" 
-              :active="true" 
+            <default-button
+              text="Точно удалить?"
+              theme="mean"
+              class="w-16 animate-pulse"
+              :class="{ 'hidden': !deleteActivated}"
+              :active="true"
               @click="$emit('delete')"
             />
         </div>
       </div>
 
       <div>
-        <div>
-          <a class="rounded-md float-right opacity-70" :href="urlLink">
-            <strong class="underline text-sm">Hyperlink</strong>
-          </a>
-        </div>
-          <editable-value :label="'Name'">
+<!--        <div>-->
+<!--          <a class="rounded-md float-right opacity-70" :href="urlLink">-->
+<!--            <strong class="underline text-sm">Hyperlink</strong>-->
+<!--          </a>-->
+<!--        </div>-->
+          <editable-value :label="'Название'">
             <template #display>
               <span>{{item.name}}</span>
             </template>
             <template #edit>
-              <input 
+              <input
                 v-model="item.name"
                 class="w-full"
                 maxlength="240"
@@ -106,7 +107,7 @@ function setDescHeight() {
       </div>
 
       <div>
-        <editable-value :label="'Description'">
+        <editable-value :label="'Описание задачи'">
           <template #display>
             <div
               id="descDisplay"
@@ -128,9 +129,9 @@ function setDescHeight() {
       </div>
 
       <div class="-mx-6 p-2 text-green font-bold backdrop-brightness-90 text-center">
-        Created:<span class="pl-2">{{ new Date(item.created) }}</span>
+        Создано :<span class="pl-2">{{ new Date(item.created) }}</span>
       </div>
-    </div>  
+    </div>
   </div>
 </template>
 

@@ -28,6 +28,7 @@ function save() {
 }
 </script>
 
+<!--    Сам контейнер-->
 <template>
   <div
     @drop="handleDrop"
@@ -47,7 +48,7 @@ function save() {
               v-model="stageName"
               class="w-full text-center -mx-2"
               maxlength="240"
-            />  
+            />
           </template>
         </editable-value>
       </h2>
@@ -55,7 +56,7 @@ function save() {
       <div class="grid grid-flow-row gap-1 auto-rows-max">
         <item-container
           v-for="item, i in value.items"
-          :key="'item-'+ item.name + item.created" 
+          :key="'item-'+ item.name + item.created"
           :value="item"
           @click="$emit('open-item', i)"
         />
