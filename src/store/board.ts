@@ -11,13 +11,15 @@ const wrapAttempt = (func: () => void) => {
       console.error(e)
       return false
     }
-} 
+}
 
+// Изначальное появление столбцов
 export const useBoardStore = defineStore('board', () => {
   const stages: Stage[] = [
-    { name: 'Stage 1', items: [] },
-    { name: 'Stage 2', items: [] },
-    { name: 'Stage 3', items: [] },
+    { name: 'Запланированные задачи', items: [] },
+    { name: 'Задачи в работе', items: [] },
+    { name: 'Тестирование', items: [] },
+    { name: 'Выполненные задачи', items: [] },
   ]
   const board = ref<Board>({ stages })
   const selectedStageIndex = ref<number>(-1)
@@ -53,7 +55,7 @@ export const useBoardStore = defineStore('board', () => {
   }
 
   //#region Alternate API actions
-  
+
   async function fetchWithApi() {
     // If using an api backend:
     ready.value = false

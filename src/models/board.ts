@@ -1,3 +1,4 @@
+// этакая база данных приложухи
 export type Board = {
     stages: Stage[],
 }
@@ -11,7 +12,7 @@ export type Item = {
     id: string,
     name: string,
     desc: string,
-    color: string,
+    // color: string,
     updated: number,
     created: number,
 }

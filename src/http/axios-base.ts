@@ -1,4 +1,4 @@
-// Базовые настройки
+// Базовые настройки запуска сервера
 import axios from 'axios'
 
 export const api = axios.create({

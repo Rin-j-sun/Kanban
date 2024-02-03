@@ -19,10 +19,12 @@ onMounted(() => {
 })
 boardStore.$subscribe(boardStore.save)
 
+// Вычисление количества столбцов
 const firstStage = computed(() => selectedStageIndex.value == 0)
 const lastStage = computed(() => selectedStageIndex.value == board.value.stages.length - 1)
 const amount = computed(() => board.value.stages?.length)
-const maxAmount = 6
+// максимальное количество столбцов
+const maxAmount = 4
 
 //#region Stage Actions
 
