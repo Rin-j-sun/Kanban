@@ -1,5 +1,6 @@
+<!--Отображение добавления новой задачи +-->
 <template>
-  <div class="mx-2 border-2 border-gray-light border-dashed rounded cursor-pointer">
+  <div class=" new_title mx-2 border-2 border-gray-light border-dashed rounded cursor-pointer">
     <div
       class="grid place-content-center h-full py-2
       hover:backdrop-brightness-110 active:backdrop-brightness-90"
@@ -10,4 +11,7 @@
     </div>
   </div>
 </template>
+
+
+
 

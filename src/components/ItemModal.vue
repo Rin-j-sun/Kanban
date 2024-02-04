@@ -41,16 +41,17 @@ function setDescHeight() {
 
 </script>
 
+<!--Сама карточка задачи-->
 <template>
   <div
     v-if="item"
-    class="fixed min-w-full h-1/2 bottom-0 left-0 right-0 bg-gradient-to-b from-purple to-blue shadow-2xl"
+    class="card_place"
   >
 <!--    Кнопки врерёд/назад-->
     <div class="sticky bg-gray-light p-1">
-      <default-button text="⤌ Откат" theme="neutral" class="w-fit mr-1" :active="!first" @click="$emit('regress')" />
+      <default-button text="⤌ Откат" theme="neutral" class="back" :active="!first" @click="$emit('regress')" />
       <default-button text="✖" theme=" " class="w-auto px-6 py-1 text-2xl float-right" :active="true" @click="$emit('closed')" />
-      <default-button text="Вперёд ⤍" theme="good" class="w-fit mx-auto float-right" :active="!last" @click="$emit('progress')" />
+      <default-button text="Вперёд ⤍" theme="good" class="go" :active="!last" @click="$emit('progress')" />
     </div>
 
     <div class="flex flex-col gap-4 min-w-full h-full bottom-0 left-0 right-0 px-6 pb-12 overflow-y-auto">
@@ -88,6 +89,7 @@ function setDescHeight() {
         </div>
       </div>
 
+<!--      Поля на карточке-->
       <div>
 <!--        <div>-->
 <!--          <a class="rounded-md float-right opacity-70" :href="urlLink">-->
@@ -129,6 +131,29 @@ function setDescHeight() {
           </template>
         </editable-value>
       </div>
+
+      <div>
+        <editable-value :label="'Дедлайн'">
+          <template #display>
+            <div
+              id="deadline"
+              class="whitespace-pre-wrap"
+              @click="setDescHeight"
+            >
+              {{item.deadline}}
+            </div>
+          </template>
+          <template #edit>
+            <input
+              v-model="item.deadline"
+              class="w-full"
+              maxlength="240"
+            />
+          </template>
+        </editable-value>
+      </div>
+
+
 
       <div class="-mx-6 p-2 text-green font-bold backdrop-brightness-90 text-center">
         Создано :<span class="pl-2">{{ new Date(item.created) }}</span>

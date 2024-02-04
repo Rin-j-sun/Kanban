@@ -16,7 +16,7 @@ const wrapAttempt = (func: () => void) => {
 // Изначальное появление столбцов
 export const useBoardStore = defineStore('board', () => {
   const stages: Stage[] = [
-    { name: 'Запланированные задачи', items: [] },
+    { name: 'Запланированные задачи',  items: [] },
     { name: 'Задачи в работе', items: [] },
     { name: 'Тестирование', items: [] },
     { name: 'Выполненные задачи', items: [] },

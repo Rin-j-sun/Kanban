@@ -35,7 +35,7 @@ function debounce() {
 
 <template>
   <button
-    class="p-2 font-bold rounded-sm hover:shadow-none active:brightness-75"
+    class="all_but"
     :class="[colorClass, { 'bg-gray': !isActive, 'hover:brightness-125 shadow-xl': isActive}]"
     :disabled="!isActive"
     @click="debounce"

@@ -1,3 +1,4 @@
+<!--Один контейнер-->
 <script setup lang='ts'>
 import { ref, defineEmits, watch, onMounted } from 'vue'
 import { Stage } from 'src/models/board'
@@ -18,7 +19,7 @@ const stageName = ref(props.value.name)
 watch(stageName, () => save())
 
 function handleDrop(e: DragEvent) {
-  var itemId = e.dataTransfer?.getData('draggedItemId')
+  let itemId = e.dataTransfer?.getData('draggedItemId')
   if (itemId) emit('move-item', props.index, itemId)
 }
 
@@ -30,15 +31,14 @@ function save() {
 
 <!--    Сам контейнер-->
 <template>
+
   <div
     @drop="handleDrop"
     @dragenter.prevent @dragover.prevent
-    class="grow min-w-min max-w-xs overflow-y-scroll snap-y scroll-mb-6
-          no-scrollbar p-4 pt-0 bg-gradient-to-b from-purple to-blue rounded-lg"
+    class="containeer"
   >
     <div class="h-full">
-      <h2 class="text-center font-bold sticky top-0 py-4 mb-4 -mx-4
-          bg-purple border-b-2 border-gray-light shadow-md z-20" >
+      <h2 class="containeer_title" >
         <editable-value label="">
           <template #display>
             <span>{{stageName}}</span>
@@ -53,16 +53,17 @@ function save() {
         </editable-value>
       </h2>
 
+<!--      Отображение добавления задачи-->
       <div class="grid grid-flow-row gap-1 auto-rows-max">
         <item-container
-          v-for="item, i in value.items"
+          v-for="(item, i) in value.items"
           :key="'item-'+ item.name + item.created"
           :value="item"
           @click="$emit('open-item', i)"
         />
         <addition-placeholder @click="$emit('add-item')" />
       </div>
-    </div>
+      </div>
   </div>
 </template>
 

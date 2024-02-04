@@ -1,0 +1,60 @@
+header{
+  /*width: 30px;*/
+  height: 30px;
+  background-color: palegreen;
+}
+.float-right{
+  background-color: green;
+}
+h1{
+  margin-left: 30rem;
+  font-size: 40px;
+}
+
+/*Поле добавления карточки*/
+.card_place{
+  position: relative;
+  height: 30rem;
+  background-color: darkseagreen;
+}
+/*Кнопка назад*/
+.back{
+
+}
+
+/*Кнопка вперёд*/
+.go{
+
+}
+
+/*Класс контейнера*/
+.containeer{
+  background-color: darkseagreen;
+  border-radius: 20px;
+  width: 30rem;
+}
+/*Класс заголовка контейнера*/
+.containeer_title{
+  background-color: dimgrey;
+  margin-bottom: 10px;
+  height: 40px;
+  border-radius: 20px 20px 0 0;
+}
+
+/*поле добавления новой заметки*/
+.containeer:first-child .new_title {
+  visibility: visible;
+}
+
+.containeer:not(:first-child) .new_title {
+  visibility: hidden;
+}
+
+.font-bold{
+  margin-left: 0;
+  font-size: 20px;
+}
+
+/*#des{*/
+/*  */
+/*}*/

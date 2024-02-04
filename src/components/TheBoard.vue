@@ -9,6 +9,7 @@ import StageContainer from './StageContainer.vue'
 import ItemModal from './ItemModal.vue'
 import AdditionPlaceholder from './base/AdditionPlaceholder.vue'
 
+
 let boardStore = useBoardStore()
 const { board, ready, selectedItem, selectedStageIndex } = storeToRefs(boardStore)
 
@@ -28,6 +29,7 @@ const maxAmount = 4
 
 //#region Stage Actions
 
+// Функция добавления нового столбца
 function addStage() {
   if (amount.value == maxAmount) return
   const newStage: Stage = { name: 'Stage ' + (amount.value + 1), items: [] }
@@ -66,6 +68,7 @@ function setItemSelection(stageIndex: number, itemIndex: number) {
           id: Date.now().toString(36),
           name: 'Название задачи',
           desc: 'Описание',
+          deadline: 'Дедлайн',
           // color: 'blue',
           updated: new Date().getTime(),
           created: new Date().getTime()
@@ -101,6 +104,7 @@ function moveItem(toStageIndex: number, itemId?: string) {
   clearItemSelection()
 }
 
+// Функция удаления задачи
 function deleteItem() {
   boardStore.$patch(state => {
     state.board
@@ -114,10 +118,7 @@ function deleteItem() {
 </script>
 
 <template>
-  <h1 class="absolute text-xl text-green brightness-125 pl-7 mt-5 antialiased">
-    <strong>Kanban Board</strong>
-  </h1>
-  <div v-if="ready" class="flex h-screen flex-row gap-6 p-6 pt-12 -mt-5 antialiased">
+    <div v-if="ready" class="flex h-screen flex-row gap-6 p-6 pt-12 -mt-5 antialiased">
     <stage-container
       v-for="(stage, i) in board.stages"
       :key="'stage-' + stage.name + i"
